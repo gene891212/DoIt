@@ -182,14 +182,14 @@
     }
 
     ruby {
-      background: $code-background-color;
+      background: $global-background-color;
 
       rt {
         color: $global-font-secondary-color;
       }
 
       [theme=dark] & {
-        background: $code-background-color-dark;
+        background: $global-background-color-dark;
 
         rt {
           color: $global-font-secondary-color-dark;
@@ -197,7 +197,7 @@
       }
 
       [theme=black] & {
-        background: $code-background-color-black;
+        background: $global-background-color-black;
 
         rt {
           color: $global-font-secondary-color-black;
