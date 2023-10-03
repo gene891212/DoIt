@@ -195,6 +195,15 @@
     {{- end -}}
 {{- end -}}
 
+{{- /* Youtube with Lyrics */ -}}
+{{- if (.Scratch.Get "this").lyricflow -}}
+    {{- $options := dict "transpiler" "libsass" -}}
+    {{- dict "Source" "lib/lyricflow/lyricflow.scss" "Minify" true "ToCSS" $options "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
+
+    {{- $source := "/lib/lyricflow/lyricflow.js" -}}
+    {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+{{- end -}}
+
 {{- /* Cookie Consent */ -}}
 {{- if .Site.Params.cookieconsent | and .Site.Params.cookieconsent.enable -}}
     <div id="cookieconsent-container"></div>
